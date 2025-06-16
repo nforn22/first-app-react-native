@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {  StyleSheet, Text, View, ScrollView, TouchableOpacity, /*image*/ } from 'react-native';
+import {  StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 
 export default function App() {
@@ -10,11 +10,15 @@ export default function App() {
       {/* header avec logo IMDb */}
       <View style={styles.header}>
         <View style={styles.logoContainer}>
-          <Text style={styles.logoText}>IMDb</Text>
+          <Image 
+            source={require('./assets/logo-imdb.png')}
+            style={styles.logoImage}
+            resizeMode="contain"
+          />
         </View>
       </View>
 
-      <ScrollView style={styles.scrollView}>
+      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
         {/* titre du film */}
         <Text style={styles.movieTitle}>Interstellar</Text>
         
@@ -75,10 +79,15 @@ export default function App() {
             horizontal={true} 
             showsHorizontalScrollIndicator={false}
             style={styles.castScrollView}
+            contentContainerStyle={{ paddingHorizontal: 16 }}
           >
             <View style={styles.actorCard}>
-              <View style={styles.actorImage} />
-              <Text style={styles.actorName} numberOfLines={1}>Matthew McCon...</Text>
+              <Image 
+                source={require('./assets/Matthew-McConaughey.webp')}
+                style={styles.actorImage}
+                resizeMode="cover"
+              />
+              <Text style={styles.actorName} numberOfLines={1}>Matthew McConaughey</Text>
               <Text style={styles.characterName}>Cooper</Text>
             </View>
             
@@ -90,7 +99,7 @@ export default function App() {
             
             <View style={styles.actorCard}>
               <View style={styles.actorImage} />
-              <Text style={styles.actorName} numberOfLines={1}>Jessica Ch...</Text>
+              <Text style={styles.actorName} numberOfLines={1}>Jessica Chastain</Text>
               <Text style={styles.characterName}>Murph</Text>
             </View>
           </ScrollView>
@@ -130,14 +139,16 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     borderRadius: 4,
   },
-  logoText: {
-    color: 'black',
-    fontWeight: 'bold',
-    fontSize: 16,
+  logoImage: {
+    width: 50,
+    height: 25,
   },
   scrollView: {
     flex: 1,
+  },
+  scrollContent: {
     backgroundColor: '#1a1a1a',
+    paddingBottom: 50,
   },
   movieTitle: {
     color: 'white',
@@ -265,8 +276,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   castScrollView: {
-    marginHorizontal: -16,
-    paddingHorizontal: 16,
+    flexGrow: 0,
   },
   actorCard: {
     marginRight: 12,
@@ -275,7 +285,6 @@ const styles = StyleSheet.create({
   actorImage: {
     width: 120,
     height: 160,
-    backgroundColor: '#333',
     borderRadius: 8,
     marginBottom: 8,
   },
