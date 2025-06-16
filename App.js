@@ -29,7 +29,11 @@ export default function App() {
         <View style={styles.mainSection}>
           {/* affiche du film */}
           <View style={styles.posterContainer}>
-            <View style={styles.poster} />
+            <Image 
+              source={require('./assets/interstellar-poster.jpg')}
+              style={styles.poster}
+              resizeMode="cover"
+            />
           </View>
           
           {/* description et bouton */}
@@ -92,13 +96,21 @@ export default function App() {
             </View>
             
             <View style={styles.actorCard}>
-              <View style={styles.actorImage} />
+              <Image 
+                source={require('./assets/anna-hathaway.jpg')}
+                style={styles.actorImage}
+                resizeMode="cover"
+              />
               <Text style={styles.actorName} numberOfLines={1}>Anne Hathaway</Text>
               <Text style={styles.characterName}>Brand</Text>
             </View>
             
             <View style={styles.actorCard}>
-              <View style={styles.actorImage} />
+              <Image 
+                source={require('./assets/Jessica-Chastain.webp')}
+                style={styles.actorImage}
+                resizeMode="cover"
+              />
               <Text style={styles.actorName} numberOfLines={1}>Jessica Chastain</Text>
               <Text style={styles.characterName}>Murph</Text>
             </View>
