@@ -4,6 +4,7 @@ import { Header } from './src/components/Header/Header';
 import { MovieInfo } from './src/components/MovieInfo/MovieInfo';
 import { RatingsSection } from './src/components/RatingsSection/RatingsSection';
 import { CastSection } from './src/components/CastSection/CastSection';
+import { CreditsSection } from './src/components/CreditsSection/CreditsSection';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <MovieInfo />
         <RatingsSection />
         <CastSection />
+        <CreditsSection />
       </ScrollView>
     </View>
   );
